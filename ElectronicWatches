@@ -1,0 +1,45 @@
+package com.company;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int seconds = scanner.nextInt();
+        int h = 0;
+        int mm = 0;
+        int ss = 0;
+        if (seconds / 3600 >= 1) {
+            h = seconds / 3600;
+            mm = seconds % 3600 / 60;
+            ss = seconds % 60;
+        }else if (seconds / 3600 < 1) {
+            mm = seconds / 60;
+            ss = seconds % 60;
+        }
+        if (h >= 24) {
+            mm = seconds % 3600 / 60;
+            ss = seconds % 60;
+            if (mm <= 9 && ss <= 9) {
+                System.out.println("0:" + "0" + mm + ":" + "0" + ss);
+            } else if (mm <= 9) {
+                System.out.println("0:" + "0" + mm + ":" + ss);
+            } else if (ss <= 9) {
+                System.out.println("0:" + mm + ":" + "0" + ss);
+            }
+            else if(mm>=10 && ss>=10){
+                System.out.println("0" + ":" + mm + ":" + ss);
+            }
+        } else {
+            if (mm <= 9 && ss <= 9) {
+                System.out.println(h + ":" + "0" + mm + ":" + "0" + ss);
+            } else if (mm <= 9) {
+                System.out.println(h + ":" + "0" + mm + ":" + ss);
+            } else if (ss <= 9) {
+                System.out.println(h + ":" + mm + ":" + "0" + ss);
+            }
+            else if(mm>=10 && ss>=10){
+                System.out.println(h + ":" + mm + ":" + ss);
+            }
+        }
+    }
+}
