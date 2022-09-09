@@ -1,0 +1,24 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.lang.Math;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double a = scanner.nextInt();
+        double b = scanner.nextInt();
+        double c = scanner.nextInt();
+        double x1, x2;
+        double d = b * b - 4 * a * c;
+        x1 = (-(b) - Math.sqrt(d)) / (2 * a);
+        x2 = (-(b) + Math.sqrt(d)) / (2 * a);
+        if (d < 0) {
+            System.out.println("no roots");
+        } else if (x1 == x2) {
+            System.out.println(x1);
+        } else {
+            System.out.println(x1 + " " + x2);
+        }
+    }
+}
