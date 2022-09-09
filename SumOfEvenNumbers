@@ -1,0 +1,20 @@
+public class Main {
+    public static void main(String args[]) {
+        int[] array = new int[]{1, 2, 3, 4, 5, 6};
+        int sum = sum(array);
+        System.out.println(sum);
+
+    }
+
+
+    public static int sum(int[] arraySum) {
+        int sumOf = 0;
+        for (int i = 0; i < arraySum.length; i++) {
+            if (arraySum[i] % 2 == 0) {
+                sumOf += arraySum[i];
+            }
+        }
+
+        return sumOf;
+    }
+}
