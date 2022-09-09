@@ -1,0 +1,21 @@
+public static int max() {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+        int countElements = -1;
+        int element;
+        int sum = 0;
+        do {
+            element = scanner.nextInt();
+            list.add(element);
+            countElements++;
+        } while (element != 0);
+        for (int i = 0; i != countElements ; i++) {
+            sum = sum + list.get(i);
+        }
+        return sum/countElements;
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(max());
+    }
