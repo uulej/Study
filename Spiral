@@ -3,7 +3,7 @@ public static void main(String[] args) {
     }
 
 
-    static void spiral(int rows, int columns) {
+    static int[][] spiral(int rows, int columns) {
         int[][] spiralArray = new int[rows][columns];
         int[][] array = new int[rows][columns];
         int s = 1;
