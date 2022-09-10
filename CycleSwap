@@ -32,3 +32,14 @@ class CycleSwap {
         System.out.println(Arrays.toString(tmpArr));
     }
 }
+
+
+/*static void cycleSwap(int[] array, int shift) {
+        int[] arraySwap2 = new int[array.length];
+        for (int i = 0; i < array.length ; i++) {
+            arraySwap2[i] = array[i+shift-1];
+            if(i==array[array.length-shift+2]){
+                arraySwap2[i]= array[i-shift];
+            }
+        }
+        System.out.println(Arrays.toString(arraySwap2));;}*/
