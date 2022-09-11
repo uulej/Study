@@ -1,25 +1,16 @@
 import java.util.Arrays;
 
 class CycleSwap {
-   public static void main(String[] args) {
-        int[] array = new int[]{1, 3, 2, 7, 4};
+  public static void main(String[] args) {
+        int[] array = new int[]{1, 2, 3, 4, 5, 6};
         cycleSwap(array);
-        cycleSwap(array, 3);
+        cycleSwap(array, 9);
     }
 
     static void cycleSwap(int[] array) {
-        int[] arraySwap = new int[array.length];
-        arraySwap[0] = array.length - 1;
-        for (int i = 1; i < array.length; i++) {
-            arraySwap[i] = array[i - 1];
-        }
-        System.out.println(Arrays.toString(arraySwap));
-        
-    }
-
-    static void cycleSwap(int[] array, int shift) {
+        int shift = 1;
         int rightIndexMove = array.length - shift;
-        if (rightIndexMove == 0 || rightIndexMove == array.length) {
+        if (rightIndexMove == 0) {
             System.out.println(Arrays.toString(array));
         }
         int[] tmpArr = new int[array.length];
@@ -29,17 +20,41 @@ class CycleSwap {
                 rightIndexMove = 0;
             tmpArr[tmpIndex++] = array[rightIndexMove++];
         }
-        System.out.println(Arrays.toString(tmpArr));
+        if (array.length == 0) {
+            System.out.println(0);
+        } else {
+            System.out.println(Arrays.toString(tmpArr));
+        }
+
+
+    }
+
+    static void cycleSwap(int[] array, int shift) {
+        int[] tmpArr = new int[array.length];
+        int tmpIndex = 0;
+        int rightIndexMove = array.length - shift;
+        if (shift > array.length) {
+            rightIndexMove = shift - array.length;
+            while (tmpIndex < array.length) {
+                if (rightIndexMove > array.length - 1)
+                    rightIndexMove = 0;
+                tmpArr[tmpIndex++] = array[rightIndexMove++];
+            }
+        }
+
+        while (tmpIndex < array.length) {
+            if (rightIndexMove > array.length - 1)
+                rightIndexMove = 0;
+            tmpArr[tmpIndex++] = array[rightIndexMove++];
+        }
+        if (array.length == 0) {
+            System.out.println(0);
+        } else if (rightIndexMove == 0 || rightIndexMove == array.length) {
+            System.out.println(Arrays.toString(array));
+        } else {
+            System.out.println(Arrays.toString(tmpArr));
+        }
     }
 }
 
 
-/*static void cycleSwap(int[] array, int shift) {
-        int[] arraySwap2 = new int[array.length];
-        for (int i = 0; i < array.length ; i++) {
-            arraySwap2[i] = array[i+shift-1];
-            if(i==array[array.length-shift+2]){
-                arraySwap2[i]= array[i-shift];
-            }
-        }
-        System.out.println(Arrays.toString(arraySwap2));;}*/
