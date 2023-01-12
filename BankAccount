@@ -1,0 +1,30 @@
+package com.company;
+class BankAccount{
+    private double balance;
+    public BankAccount(double openingBalance){ //конструктор
+        balance = openingBalance;
+    }
+
+    public void deposit(double amount){ //внесение средств
+        balance = balance + amount;
+    }
+    public void widthDraw(double amount){ //снятие средств
+        balance = balance - amount;
+    }
+    public void display(){ //вывод баланса
+        System.out.println("balance =" + balance);
+    }
+}
+public class Main {
+
+    public static void main(String[] args) {
+	BankAccount bal = new BankAccount(100.00);
+	System.out.println("Before transactions, ");
+	bal.display();
+	bal.deposit(67.89);
+	bal.widthDraw(34.55);
+	System.out.println("After transactions, ");
+	bal.display();
+
+    }
+}
