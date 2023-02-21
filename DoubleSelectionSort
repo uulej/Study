@@ -1,0 +1,52 @@
+package com.company;
+
+public class Main {
+
+    public static void minMax(int[] array) {
+        int k, min, max, minIndex, maxIndex, temp;
+        for (int i = 0, j = array.length - 1; i < j; i++, j--) {
+            min = array[i];
+            max = array[i];
+            minIndex = i;
+            maxIndex = i;
+            for (k = i; k <= j; k++) {
+                if (array[k] > max) {
+                    max = array[k];
+                    maxIndex = k;
+                } else if (array[k] < min) {
+                    min = array[k];
+                    minIndex = k;
+                }
+            }
+            temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
+            if (array[minIndex] == max) {
+                temp = array[j];
+                array[j] = array[minIndex];
+                array[minIndex] = temp;
+
+            } else {
+                temp = array[j];
+                array[j] = array[maxIndex];
+                array[maxIndex] = temp;
+            }
+        }
+    }
+
+    public static void showSortedArray(int[] array){
+        for (int j : array) {
+            System.out.print(j + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array = {5, 6, 12, 20, 1, 0, 4};
+        for (int j: array) {
+            System.out.print(j + " ");
+        }
+        System.out.println();
+        minMax(array);
+        showSortedArray(array);
+    }
+}
